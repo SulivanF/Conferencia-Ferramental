@@ -6,52 +6,58 @@
     <title>Relatório de Conferência de Ferramental</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --primary-red: #e50914;
-            --primary-red-hover: #b20710;
-            --border-color: #333333;
-            --input-bg: #2a2a2a;
+            --bg-color: #0f1115;
+            --card-bg: #181b22;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary-red: #b3122c;
+            --primary-red-hover: #8e0d21;
+            --border-color: #2a2f3d;
+            --input-bg: #1f242e;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
             background-color: var(--bg-color);
             color: var(--text-color);
+            line-height: 1.5;
         }
 
         .container {
             max-width: 950px;
             background: var(--card-bg);
-            padding: 25px;
+            padding: 35px;
             margin: 0 auto;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
         }
 
         h2 {
             text-align: center;
-            color: var(--primary-red);
-            margin-bottom: 5px;
+            color: var(--text-color);
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-size: 1.5rem;
         }
 
         h3 {
             text-align: center;
-            color: var(--text-color);
-            margin-bottom: 20px;
-            font-weight: 300;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
         .header-fields {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
         }
 
         .field-group {
@@ -60,75 +66,124 @@
         }
 
         .field-group label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            font-size: 0.9em;
-            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        input[type="text"], input[type="date"], input[type="number"], select, textarea {
-            padding: 8px;
+        input[type="text"], 
+        input[type="date"], 
+        input[type="number"], 
+        select, 
+        textarea {
+            padding: 10px 12px;
             background-color: var(--input-bg);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border-radius: 6px;
             color: var(--text-color);
             outline: none;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         input:focus, select:focus, textarea:focus {
             border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(179, 18, 44, 0.15);
         }
 
         .period-group {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
-            margin-top: 5px;
+            margin-top: 8px;
+            background: var(--input-bg);
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .period-group label {
+            margin-bottom: 0;
+            color: var(--text-color);
+            font-weight: normal;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         th, td {
-            border: 1px solid var(--border-color);
-            padding: 8px;
+            padding: 10px 12px;
             text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        th:last-child, td:last-child {
+            border-right: none;
         }
 
         th {
             background-color: var(--primary-red);
             color: white;
             text-transform: uppercase;
-            font-size: 0.85em;
+            font-size: 0.75rem;
+            letter-spacing: 0.8px;
+            font-weight: 600;
         }
 
-        tr:nth-child(even) {
-            background-color: #242424;
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.02);
         }
 
         .section-title {
-            margin-top: 30px;
-            background-color: #2a2a2a;
-            padding: 10px;
-            border-left: 5px solid var(--primary-red);
+            margin-top: 35px;
+            background-color: var(--input-bg);
+            padding: 12px 15px;
+            border-left: 4px solid var(--primary-red);
             color: var(--text-color);
+            font-size: 1rem;
+            border-radius: 0 6px 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Área de Assinatura Digital */
+        /* Bloco que agrupa Pendências e Assinaturas para manter juntas no PDF */
+        .bottom-section {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        /* Área de Assinatura Digital (3 colunas lado a lado) */
         .signature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .signature-card {
             background: var(--input-bg);
-            padding: 15px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
             text-align: center;
         }
@@ -136,34 +191,38 @@
         .signature-card label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary-red);
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
         }
 
         canvas {
             background: #ffffff;
-            border: 1px solid var(--primary-red);
-            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
             cursor: crosshair;
             touch-action: none;
             width: 100%;
-            height: 120px;
+            height: 90px;
         }
 
         .sig-btns {
-            margin-top: 8px;
+            margin-top: 6px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
 
         .btn-clear {
-            background: #444;
+            background: #334155;
             color: #fff;
             border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
+            padding: 4px 8px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 0.8em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            transition: background 0.2s;
         }
 
         .btn-clear:hover {
@@ -177,249 +236,286 @@
             background-color: var(--primary-red);
             color: white;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 35px;
             text-transform: uppercase;
-            transition: background 0.3s;
+            letter-spacing: 1px;
+            transition: background 0.2s, transform 0.1s;
         }
 
         .btn-submit:hover {
             background-color: var(--primary-red-hover);
         }
 
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
         @media print {
-            body { background: white; color: black; }
-            .container { box-shadow: none; border: none; background: white; }
-            .btn-submit, .btn-clear { display: none; }
-            canvas { border: 1px solid #000; }
-            h2, .field-group label, th, .signature-card label { color: #000 !important; }
-            th { background-color: #ddd !important; color: #000 !important; }
-            .section-title { background-color: #eee !important; border-left-color: #000 !important; }
-            input, select, textarea { background: white !important; color: black !important; border: 1px solid #ccc !important; }
+            @page {
+                size: auto;
+                margin: 10mm;
+            }
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                background: white;
+                padding: 0;
+                max-width: 100%;
+            }
+            .btn-submit, .btn-clear {
+                display: none;
+            }
+            canvas {
+                border: 1px solid #999;
+                background: white !important;
+            }
+            h2, .field-group label, th, .signature-card label {
+                color: #000 !important;
+            }
+            th {
+                background-color: #e2e8f0 !important;
+                color: #000 !important;
+            }
+            .section-title {
+                background-color: #f1f5f9 !important;
+                border-left-color: #000 !important;
+                color: #000 !important;
+            }
+            input, select, textarea, .period-group, .signature-card {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+            .signature-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>RELATÓRIO DE CONFERÊNCIA DE FERRAMENTAL</h2>
-    <h3>EQUIPE TÉCNICA REGIONAL AMPÉRE</h3>
+    <div class="container">
+        <h2>Relatório de Conferência de Ferramental</h2>
+        <h3>Equipe Técnica Regional Ampére</h3>
 
-    <form id="ferramentalForm">
-        <div class="header-fields">
-            <div class="field-group">
-                <label>Colaborador / Técnico:</label>
-                <input type="text" required>
-            </div>
-            <div class="field-group">
-                <label>Data da Conferência:</label>
-                <input type="date" required>
-            </div>
-            <div class="field-group">
-                <label>Cidade:</label>
-                <input type="text" required>
-            </div>
-            <div class="field-group">
-                <label>Veículo:</label>
-                <input type="text" required>
-            </div>
-            <div class="field-group">
-                <label>Responsável pela Conferência:</label>
-                <input type="text" required>
-            </div>
-            <div class="field-group">
-                <label>Periodicidade:</label>
-                <div class="period-group">
-                    <label><input type="radio" name="periodicidade" value="Inicial"> Inicial</label>
-                    <label><input type="radio" name="periodicidade" value="Periódica"> Periódica</label>
-                    <label><input type="radio" name="periodicidade" value="Final"> Final</label>
+        <form id="ferramentalForm">
+            <div class="header-fields">
+                <div class="field-group">
+                    <label>Colaborador / Técnico:</label>
+                    <input type="text" required>
+                </div>
+                <div class="field-group">
+                    <label>Data da Conferência:</label>
+                    <input type="date" required>
+                </div>
+                <div class="field-group">
+                    <label>Cidade:</label>
+                    <input type="text" required>
+                </div>
+                <div class="field-group">
+                    <label>Veículo:</label>
+                    <input type="text" required>
+                </div>
+                <div class="field-group">
+                    <label>Responsável pela Conferência:</label>
+                    <input type="text" required>
+                </div>
+                <div class="field-group">
+                    <label>Periodicidade:</label>
+                    <div class="period-group">
+                        <label><input type="radio" name="periodicidade" value="Inicial"> Inicial</label>
+                        <label><input type="radio" name="periodicidade" value="Periódica"> Periódica</label>
+                        <label><input type="radio" name="periodicidade" value="Final"> Final</label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <h3 class="section-title">RELAÇÃO DE FERRAMENTAS E EQUIPAMENTOS</h3>
+            <h3 class="section-title">Relação de Ferramentas e Equipamentos</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">Nº</th>
+                        <th style="width: 30%;">Ferramenta / Equipamento</th>
+                        <th style="width: 10%;">Qtd.</th>
+                        <th style="width: 20%;">Situação</th>
+                        <th style="width: 15%;">Conferido</th>
+                        <th style="width: 20%;">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <script>
+                        const ferramentas = [
+                            "Chave de fenda", "Chave Phillips", "Alicate de corte", "Alicate universal", 
+                            "Alicate de crimpar", "Chave de boca", "Brocas", "Kit conector de fibra", 
+                            "Clivador", "Power Meter", "Laser", "Testador de cabo", 
+                            "Broca para concreto", "Broca para madeira", "Parafusadeira", "Furadeira", 
+                            "Carrinho de Fibra", "Guia (Passa Fio)", "Modelo do celular", "Modelo do notebook"
+                        ];
 
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 5%;">Nº</th>
-                    <th style="width: 30%;">Ferramenta / Equipamento</th>
-                    <th style="width: 10%;">Qtd.</th>
-                    <th style="width: 20%;">Situação</th>
-                    <th style="width: 15%;">Conferido</th>
-                    <th style="width: 20%;">Observações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <script>
-                    const ferramentas = [
-                        "Chave de fenda", "Chave Phillips", "Alicate de corte", "Alicate universal", 
-                        "Alicate de crimpar", "Chave de boca", "Brocas", "Kit conector de fibra", 
-                        "Clivador", "Power Meter", "Laser", "Testador de cabo", 
-                        "Broca para concreto", "Broca para madeira", "Parafusadeira", "Furadeira", 
-                        "Carrinho de Fibra", "Guia (Passa Fio)", "Modelo do celular", "Modelo do notebook"
-                    ];
+                        document.write(ferramentas.map((item, index) => `
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>${item}</td>
+                                <td><input type="number" min="0" value="1" style="width: 50px;"></td>
+                                <td>
+                                    <select style="width: 100%;">
+                                        <option value="OK">OK</option>
+                                        <option value="Danificado">Danificado</option>
+                                        <option value="Manutenção">Manutenção</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select style="width: 100%;">
+                                        <option value="Sim">Sim</option>
+                                        <option value="Não">Não</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" style="width: 100%;"></td>
+                            </tr>
+                        `).join(''));
+                    </script>
+                    <tr>
+                        <td>21</td>
+                        <td>Estado do Veículo</td>
+                        <td><input type="number" min="0" value="1" style="width: 50px;"></td>
+                        <td>
+                            <select style="width: 100%;">
+                                <option value="OK">OK</option>
+                                <option value="Limpo">Limpo</option>
+                                <option value="Manutenção">Manutenção</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width: 100%;">
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width: 100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                    document.write(ferramentas.map((item, index) => `
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td>${item}</td>
-                            <td><input type="number" min="0" value="1"></td>
-                            <td>
-                                <select>
-                                    <option value="OK">OK</option>
-                                    <option value="Danificado">Danificado</option>
-                                    <option value="Manutenção">Manutenção</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select>
-                                    <option value="Sim">Sim</option>
-                                    <option value="Não">Não</option>
-                                </select>
-                            </td>
-                            <td><input type="text"></td>
-                        </tr>
-                    `).join(''));
-                </script>
-                <tr>
-                    <td>21</td>
-                    <td>Estado do Veículo</td>
-                    <td><input type="number" min="0" value="1"></td>
-                    <td>
-                        <select>
-                            <option value="OK">OK</option>
-                            <option value="Limpo">Limpo</option>
-                            <option value="Manutenção">Manutenção</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select>
-                            <option value="Sim">Sim</option>
-                            <option value="Não">Não</option>
-                        </select>
-                    </td>
-                    <td><input type="text"></td>
-                </tr>
-            </tbody>
-        </table>
+            <!-- Seção unida que não quebrará separada no PDF -->
+            <div class="bottom-section">
+                <h3 class="section-title">Parecer da Conferência</h3>
+                
+                <div style="margin-top: 15px; background: var(--input-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
+                    <label style="display: block; margin-bottom: 10px; cursor: pointer;"><input type="checkbox" name="parecer" value="ok" style="margin-right: 8px;"> Todo o ferramental conferido e disponível para utilização.</label>
+                    <label style="display: block; margin-bottom: 10px; cursor: pointer;"><input type="checkbox" name="parecer" value="danificado" style="margin-right: 8px;"> Existem itens danificados ou que necessitam manutenção.</label>
+                    <label style="display: block; cursor: pointer;"><input type="checkbox" name="parecer" value="faltando" style="margin-right: 8px;"> Existem itens faltantes, devendo ser providenciada reposição.</label>
+                </div>
 
-        <h3 class="section-title">PARECER DA CONFERÊNCIA</h3>
-        
-        <div style="margin-top: 15px;">
-            <label><input type="checkbox" name="parecer" value="ok"> Todo o ferramental conferido e disponível para utilização.</label><br><br>
-            <label><input type="checkbox" name="parecer" value="danificado"> Existem itens danificados ou que necessitam manutenção.</label><br><br>
-            <label><input type="checkbox" name="parecer" value="faltando"> Existem itens faltantes, devendo ser providenciada reposição.</label>
-        </div>
+                <div style="margin-top: 20px;">
+                    <label style="font-weight: 600; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; display: block; margin-bottom: 6px;">Descrição das pendências:</label>
+                    <textarea rows="3" style="width: 100%; box-sizing: border-box;"></textarea>
+                </div>
 
-        <div style="margin-top: 15px;">
-            <label style="font-weight: bold; color: var(--primary-red);">Descrição das pendências:</label>
-            <textarea rows="4" style="margin-top: 5px; width: 100%;"></textarea>
-        </div>
-
-        <h3 class="section-title">ASSINATURA DIGITAL</h3>
-
-        <div class="signature-grid">
-            <div class="signature-card">
-                <label>Assinatura do Técnico 1</label>
-                <canvas id="sig1"></canvas>
-                <div class="sig-btns">
-                    <button type="button" class="btn-clear" onclick="clearCanvas('sig1')">Limpar</button>
+                <h3 class="section-title">Assinatura Digital</h3>
+                
+                <div class="signature-grid">
+                    <div class="signature-card">
+                        <label>Técnico 1</label>
+                        <canvas id="sig1"></canvas>
+                        <div class="sig-btns">
+                            <button type="button" class="btn-clear" onclick="clearCanvas('sig1')">Limpar</button>
+                        </div>
+                    </div>
+                    <div class="signature-card">
+                        <label>Técnico 2</label>
+                        <canvas id="sig2"></canvas>
+                        <div class="sig-btns">
+                            <button type="button" class="btn-clear" onclick="clearCanvas('sig2')">Limpar</button>
+                        </div>
+                    </div>
+                    <div class="signature-card">
+                        <label>Responsável</label>
+                        <canvas id="sig3"></canvas>
+                        <div class="sig-btns">
+                            <button type="button" class="btn-clear" onclick="clearCanvas('sig3')">Limpar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="signature-card">
-                <label>Assinatura do Técnico 2</label>
-                <canvas id="sig2"></canvas>
-                <div class="sig-btns">
-                    <button type="button" class="btn-clear" onclick="clearCanvas('sig2')">Limpar</button>
-                </div>
-            </div>
-            <div class="signature-card">
-                <label>Assinatura do Responsável</label>
-                <canvas id="sig3"></canvas>
-                <div class="sig-btns">
-                    <button type="button" class="btn-clear" onclick="clearCanvas('sig3')">Limpar</button>
-                </div>
-            </div>
-        </div>
 
-        <button type="button" class="btn-submit" onclick="window.print()">Salvar / Imprimir PDF</button>
-    </form>
-</div>
+            <button type="button" class="btn-submit" onclick="window.print()">Salvar / Imprimir PDF</button>
+        </form>
+    </div>
 
-<script>
-    // Lógica para desenhar nas assinaturas digitais (Mouse e Touch)
-    function setupSignatureCanvas(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext('2d');
-        let isDrawing = false;
+    <script>
+        function setupSignatureCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            let isDrawing = false;
 
-        // Ajusta a resolução interna do canvas
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
 
-        ctx.strokeStyle = '#000000'; // Cor da caneta preta para legibilidade ao imprimir
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
+            ctx.strokeStyle = '#000000';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
 
-        function getPos(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
+            function getPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - rect.left,
+                    y: clientY - rect.top
+                };
+            }
+
+            function startDrawing(e) {
+                isDrawing = true;
+                const pos = getPos(e);
+                ctx.beginPath();
+                ctx.moveTo(pos.x, pos.y);
+                e.preventDefault();
+            }
+
+            function draw(e) {
+                if (!isDrawing) return;
+                const pos = getPos(e);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.stroke();
+                e.preventDefault();
+            }
+
+            function stopDrawing() {
+                isDrawing = false;
+            }
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseleave', stopDrawing);
+
+            canvas.addEventListener('touchstart', startDrawing);
+            canvas.addEventListener('touchmove', draw);
+            canvas.addEventListener('touchend', stopDrawing);
         }
 
-        function startDrawing(e) {
-            isDrawing = true;
-            const pos = getPos(e);
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
-            e.preventDefault();
+        function clearCanvas(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
-        function draw(e) {
-            if (!isDrawing) return;
-            const pos = getPos(e);
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
-            e.preventDefault();
-        }
-
-        function stopDrawing() {
-            isDrawing = false;
-        }
-
-        // Mouse Events
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDrawing);
-        canvas.addEventListener('mouseleave', stopDrawing);
-
-        // Touch Events (Celular / Tablet)
-        canvas.addEventListener('touchstart', startDrawing);
-        canvas.addEventListener('touchmove', draw);
-        canvas.addEventListener('touchend', stopDrawing);
-    }
-
-    function clearCanvas(canvasId) {
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    // Inicializa os 3 blocos de assinatura
-    window.onload = function() {
-        setupSignatureCanvas('sig1');
-        setupSignatureCanvas('sig2');
-        setupSignatureCanvas('sig3');
-    };
-</script>
-
+        window.onload = function() {
+            setupSignatureCanvas('sig1');
+            setupSignatureCanvas('sig2');
+            setupSignatureCanvas('sig3');
+        };
+    </script>
 </body>
 </html>
