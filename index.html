@@ -15,7 +15,6 @@
             --border-color: #2a2f3d;
             --input-bg: #1f242e;
         }
-
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -24,7 +23,6 @@
             color: var(--text-color);
             line-height: 1.5;
         }
-
         .container {
             max-width: 950px;
             background: var(--card-bg);
@@ -34,7 +32,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
         }
-
         h2 {
             text-align: center;
             color: var(--text-color);
@@ -43,7 +40,6 @@
             letter-spacing: 1.5px;
             font-size: 1.5rem;
         }
-
         h3 {
             text-align: center;
             color: var(--text-muted);
@@ -52,19 +48,16 @@
             font-size: 0.95rem;
             letter-spacing: 0.5px;
         }
-
         .header-fields {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
             margin-bottom: 25px;
         }
-
         .field-group {
             display: flex;
             flex-direction: column;
         }
-
         .field-group label {
             font-weight: 600;
             margin-bottom: 6px;
@@ -73,12 +66,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
-        input[type="text"], 
-        input[type="date"], 
-        input[type="number"], 
-        select, 
-        textarea {
+        input[type="text"], input[type="date"], input[type="number"], select, textarea {
             padding: 10px 12px;
             background-color: var(--input-bg);
             border: 1px solid var(--border-color);
@@ -88,12 +76,10 @@
             font-size: 0.95rem;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
-
         input:focus, select:focus, textarea:focus {
             border-color: var(--primary-red);
             box-shadow: 0 0 0 3px rgba(179, 18, 44, 0.15);
         }
-
         .period-group {
             display: flex;
             gap: 20px;
@@ -104,7 +90,6 @@
             border-radius: 6px;
             border: 1px solid var(--border-color);
         }
-
         .period-group label {
             margin-bottom: 0;
             color: var(--text-color);
@@ -115,7 +100,6 @@
             align-items: center;
             gap: 6px;
         }
-
         table {
             width: 100%;
             border-collapse: separate;
@@ -125,18 +109,15 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
-
         th, td {
             padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
             border-right: 1px solid var(--border-color);
         }
-
         th:last-child, td:last-child {
             border-right: none;
         }
-
         th {
             background-color: var(--primary-red);
             color: white;
@@ -145,15 +126,12 @@
             letter-spacing: 0.8px;
             font-weight: 600;
         }
-
         tr:last-child td {
             border-bottom: none;
         }
-
         tr:nth-child(even) td {
             background-color: rgba(255, 255, 255, 0.02);
         }
-
         .section-title {
             margin-top: 35px;
             background-color: var(--input-bg);
@@ -165,13 +143,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
         /* Bloco que agrupa Pendências e Assinaturas para manter juntas no PDF */
         .bottom-section {
             page-break-inside: avoid;
             break-inside: avoid;
         }
-
         /* Área de Assinatura Digital (3 colunas lado a lado) */
         .signature-grid {
             display: grid;
@@ -179,7 +155,6 @@
             gap: 15px;
             margin-top: 25px;
         }
-
         .signature-card {
             background: var(--input-bg);
             padding: 12px;
@@ -187,7 +162,6 @@
             border: 1px solid var(--border-color);
             text-align: center;
         }
-
         .signature-card label {
             display: block;
             margin-bottom: 8px;
@@ -196,7 +170,6 @@
             font-size: 0.75rem;
             text-transform: uppercase;
         }
-
         canvas {
             background: #ffffff;
             border: 1px solid var(--border-color);
@@ -206,13 +179,11 @@
             width: 100%;
             height: 90px;
         }
-
         .sig-btns {
             margin-top: 6px;
             display: flex;
             justify-content: flex-end;
         }
-
         .btn-clear {
             background: #334155;
             color: #fff;
@@ -224,11 +195,9 @@
             font-weight: 600;
             transition: background 0.2s;
         }
-
         .btn-clear:hover {
             background: var(--primary-red);
         }
-
         .btn-submit {
             display: block;
             width: 100%;
@@ -245,15 +214,12 @@
             letter-spacing: 1px;
             transition: background 0.2s, transform 0.1s;
         }
-
         .btn-submit:hover {
             background-color: var(--primary-red-hover);
         }
-
         .btn-submit:active {
             transform: scale(0.99);
         }
-
         @media print {
             @page {
                 size: auto;
@@ -302,11 +268,9 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <h2>Relatório de Conferência de Ferramental</h2>
         <h3>Equipe Técnica Regional Ampére</h3>
-
         <form id="ferramentalForm">
             <div class="header-fields">
                 <div class="field-group">
@@ -340,7 +304,6 @@
             </div>
 
             <h3 class="section-title">Relação de Ferramentas e Equipamentos</h3>
-            
             <table>
                 <thead>
                     <tr>
@@ -355,13 +318,31 @@
                 <tbody>
                     <script>
                         const ferramentas = [
-                            "Chave de fenda", "Chave Phillips", "Alicate de corte", "Alicate universal", 
-                            "Alicate de crimpar", "Chave de boca", "Brocas", "Kit conector de fibra", 
-                            "Clivador", "Power Meter", "Laser", "Testador de cabo", 
-                            "Broca para concreto", "Broca para madeira", "Parafusadeira", "Furadeira", 
-                            "Carrinho de Fibra", "Guia (Passa Fio)", "Modelo do celular", "Modelo do notebook"
+                            "Alicate de crimpar", 
+                            "Alicate de corte", 
+                            "Alicate universal", 
+                            "Broca para concreto", 
+                            "Broca para madeira", 
+                            "Brocas", 
+                            "Carrinho de Fibra", 
+                            "Chave de boca", 
+                            "Chave de fenda", 
+                            "Chave Phillips", 
+                            "Clivador", 
+                            "Facão", 
+                            "Furadeira", 
+                            "Guia (Passa Fio)", 
+                            "Kit conector de fibra", 
+                            "Laser", 
+                            "Martelo", 
+                            "Modelo do celular", 
+                            "Modelo do notebook", 
+                            "Parafusadeira", 
+                            "Power Meter", 
+                            "Testador de cabo", 
+                            "Vara de Manobra", 
+                            "Vara de pescar Fio"
                         ];
-
                         document.write(ferramentas.map((item, index) => `
                             <tr>
                                 <td>${index + 1}</td>
@@ -385,7 +366,7 @@
                         `).join(''));
                     </script>
                     <tr>
-                        <td>21</td>
+                        <td>25</td>
                         <td>Estado do Veículo</td>
                         <td><input type="number" min="0" value="1" style="width: 50px;"></td>
                         <td>
@@ -409,7 +390,6 @@
             <!-- Seção unida que não quebrará separada no PDF -->
             <div class="bottom-section">
                 <h3 class="section-title">Parecer da Conferência</h3>
-                
                 <div style="margin-top: 15px; background: var(--input-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
                     <label style="display: block; margin-bottom: 10px; cursor: pointer;"><input type="checkbox" name="parecer" value="ok" style="margin-right: 8px;"> Todo o ferramental conferido e disponível para utilização.</label>
                     <label style="display: block; margin-bottom: 10px; cursor: pointer;"><input type="checkbox" name="parecer" value="danificado" style="margin-right: 8px;"> Existem itens danificados ou que necessitam manutenção.</label>
@@ -422,7 +402,6 @@
                 </div>
 
                 <h3 class="section-title">Assinatura Digital</h3>
-                
                 <div class="signature-grid">
                     <div class="signature-card">
                         <label>Técnico 1</label>
