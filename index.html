@@ -143,12 +143,10 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        /* Bloco que agrupa Pendências e Assinaturas para manter juntas no PDF */
         .bottom-section {
             page-break-inside: avoid;
             break-inside: avoid;
         }
-        /* Área de Assinatura Digital (3 colunas lado a lado) */
         .signature-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -221,49 +219,16 @@
             transform: scale(0.99);
         }
         @media print {
-            @page {
-                size: auto;
-                margin: 10mm;
-            }
-            body {
-                background: white;
-                color: black;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                border: none;
-                background: white;
-                padding: 0;
-                max-width: 100%;
-            }
-            .btn-submit, .btn-clear {
-                display: none;
-            }
-            canvas {
-                border: 1px solid #999;
-                background: white !important;
-            }
-            h2, .field-group label, th, .signature-card label {
-                color: #000 !important;
-            }
-            th {
-                background-color: #e2e8f0 !important;
-                color: #000 !important;
-            }
-            .section-title {
-                background-color: #f1f5f9 !important;
-                border-left-color: #000 !important;
-                color: #000 !important;
-            }
-            input, select, textarea, .period-group, .signature-card {
-                background: white !important;
-                color: black !important;
-                border: 1px solid #cbd5e1 !important;
-            }
-            .signature-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
+            @page { size: auto; margin: 10mm; }
+            body { background: white; color: black; padding: 0; }
+            .container { box-shadow: none; border: none; background: white; padding: 0; max-width: 100%; }
+            .btn-submit, .btn-clear { display: none; }
+            canvas { border: 1px solid #999; background: white !important; }
+            h2, .field-group label, th, .signature-card label { color: #000 !important; }
+            th { background-color: #e2e8f0 !important; color: #000 !important; }
+            .section-title { background-color: #f1f5f9 !important; border-left-color: #000 !important; color: #000 !important; }
+            input, select, textarea, .period-group, .signature-card { background: white !important; color: black !important; border: 1px solid #cbd5e1 !important; }
+            .signature-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
     </style>
 </head>
@@ -271,6 +236,7 @@
     <div class="container">
         <h2>Relatório de Conferência de Ferramental</h2>
         <h3>Equipe Técnica Regional Ampére</h3>
+        
         <form id="ferramentalForm">
             <div class="header-fields">
                 <div class="field-group">
@@ -318,31 +284,37 @@
                 <tbody>
                     <script>
                         const ferramentas = [
-                            "Alicate de crimpar", 
-                            "Alicate de corte", 
-                            "Alicate universal", 
-                            "Broca para concreto", 
-                            "Broca para madeira", 
-                            "Brocas", 
-                            "Carrinho de Fibra", 
-                            "Chave de boca", 
-                            "Chave de fenda", 
-                            "Chave Phillips", 
-                            "Clivador", 
-                            "Facão", 
-                            "Furadeira", 
-                            "Guia (Passa Fio)", 
-                            "Kit conector de fibra", 
-                            "Laser", 
-                            "Martelo", 
-                            "Modelo do celular", 
-                            "Modelo do notebook", 
-                            "Parafusadeira", 
-                            "Power Meter", 
-                            "Testador de cabo", 
-                            "Vara de Manobra", 
+                            "Alicate de crimpar",
+                            "Alicate de corte",
+                            "Alicate universal",
+                            "Bits para parafusadeira",
+                            "Broca para concreto",
+                            "Broca para madeira",
+                            "Brocas",
+                            "Carrinho de Fibra",
+                            "Chave cachimbo",
+                            "Chave de boca",
+                            "Chave de fenda",
+                            "Chave Phillips",
+                            "Clivador",
+                            "Cone de sinalização",
+                            "Estilete",
+                            "Facão",
+                            "Furadeira",
+                            "Guia (Passa Fio)",
+                            "Kit conector de fibra",
+                            "Laser",
+                            "Limpador de ONU",
+                            "Martelo",
+                            "Modelo do celular",
+                            "Modelo do notebook",
+                            "Parafusadeira",
+                            "Power Meter",
+                            "Testador de cabo",
+                            "Vara de Manobra",
                             "Vara de pescar Fio"
                         ];
+
                         document.write(ferramentas.map((item, index) => `
                             <tr>
                                 <td>${index + 1}</td>
@@ -366,7 +338,7 @@
                         `).join(''));
                     </script>
                     <tr>
-                        <td>25</td>
+                        <td>30</td>
                         <td>Estado do Veículo</td>
                         <td><input type="number" min="0" value="1" style="width: 50px;"></td>
                         <td>
@@ -387,7 +359,6 @@
                 </tbody>
             </table>
 
-            <!-- Seção unida que não quebrará separada no PDF -->
             <div class="bottom-section">
                 <h3 class="section-title">Parecer da Conferência</h3>
                 <div style="margin-top: 15px; background: var(--input-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
