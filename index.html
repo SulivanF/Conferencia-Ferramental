@@ -271,57 +271,74 @@
         .btn:active {
             transform: translateY(0);
         }
-        
-        /* Estilos de Impressão e PDF preservando o visual moderno */
+
+        /* Estilos de Impressão e PDF com Fundo Branco */
         @media print {
             body {
-                background-color: #0d1117 !important;
-                color: #f0f6fc !important;
+                background-color: #ffffff !important;
+                color: #111111 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
                 padding: 0;
             }
+
             .container {
-                background-color: #161b22 !important;
-                border: 1px solid #30363d !important;
+                background-color: #ffffff !important;
+                border: none !important;
                 box-shadow: none !important;
-                padding: 30px;
+                padding: 10px;
                 max-width: 100%;
                 border-radius: 0;
             }
+
+            h1, .subtitle, label, .container, th, td, .signature-line {
+                color: #111111 !important;
+            }
+
             input[type="text"], input[type="date"], select, textarea {
-                background-color: #0d1117 !important;
-                border: 1px solid #30363d !important;
-                color: #f0f6fc !important;
+                background-color: #ffffff !important;
+                border: 1px solid #cccccc !important;
+                color: #111111 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+
             .section-title {
-                background: linear-gradient(90deg, rgba(248, 81, 73, 0.15) 0%, transparent 100%) !important;
+                background: #f0f0f0 !important;
                 border-left: 4px solid #f85149 !important;
+                color: #111111 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+
             th {
-                background-color: #161b22 !important;
-                color: #8b949e !important;
+                background-color: #f5f5f5 !important;
+                color: #333333 !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+
             td {
-                border-bottom: 1px solid #30363d !important;
-                color: #f0f6fc !important;
+                border-bottom: 1px solid #dddddd !important;
             }
+
             .periodicity-group, .opinion-group {
-                background-color: #0d1117 !important;
-                border: 1px solid #30363d !important;
+                background-color: #fafafa !important;
+                border: 1px solid #cccccc !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-            .signature-line {
-                border-top: 1px solid #30363d !important;
-                color: #8b949e !important;
+
+            .signatures {
+                page-break-inside: avoid;
+                break-inside: avoid;
             }
+
+            .signature-line {
+                border-top: 1px solid #999999 !important;
+                color: #333333 !important;
+            }
+
             .btn-container {
                 display: none;
             }
@@ -330,131 +347,154 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="header-title-container">
-        <h1>Relatório de Conferência de Ferramental</h1>
-        <div class="subtitle">Equipe Técnica Regional Ampére</div>
-    </div>
+    <div class="container">
+        <div class="header-title-container">
+            <h1>Relatório de Conferência de Ferramental</h1>
+            <div class="subtitle">Equipe Técnica Regional Ampére</div>
+        </div>
 
-    <form id="ferramentalForm">
-        <div class="header-grid">
-            <div class="form-group">
-                <label for="colaborador">Colaborador / Técnico</label>
-                <input type="text" id="colaborador" placeholder="Nome do colaborador...">
-            </div>
-            <div class="form-group">
-                <label for="dataConferencia">Data da Conferência</label>
-                <input type="date" id="dataConferencia">
-            </div>
-            <div class="form-group">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" placeholder="Cidade...">
-            </div>
-            <div class="form-group">
-                <label for="veiculo">Veículo</label>
-                <input type="text" id="veiculo" placeholder="Modelo / Placa...">
-            </div>
-            <div class="form-group">
-                <label for="responsavel">Responsável pela Conferência</label>
-                <input type="text" id="responsavel" placeholder="Nome do responsável...">
-            </div>
-            <div class="form-group">
-                <label>Periodicidade</label>
-                <div class="periodicity-group">
-                    <label><input type="radio" name="periodicidade" value="Inicial"> Inicial</label>
-                    <label><input type="radio" name="periodicidade" value="Periódica"> Periódica</label>
-                    <label><input type="radio" name="periodicidade" value="Final"> Final</label>
+        <form id="ferramentalForm">
+            <div class="header-grid">
+                <div class="form-group">
+                    <label for="colaborador">Colaborador / Técnico</label>
+                    <input type="text" id="colaborador" placeholder="Nome do colaborador...">
+                </div>
+                <div class="form-group">
+                    <label for="dataConferencia">Data da Conferência</label>
+                    <input type="date" id="dataConferencia">
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" placeholder="Cidade...">
+                </div>
+                <div class="form-group">
+                    <label for="veiculo">Veículo</label>
+                    <input type="text" id="veiculo" placeholder="Modelo / Placa...">
+                </div>
+                <div class="form-group">
+                    <label for="responsavel">Responsável pela Conferência</label>
+                    <input type="text" id="responsavel" placeholder="Nome do responsável...">
+                </div>
+                <div class="form-group">
+                    <label>Periodicidade</label>
+                    <div class="periodicity-group">
+                        <label><input type="radio" name="periodicidade" value="Inicial"> Inicial</label>
+                        <label><input type="radio" name="periodicidade" value="Periódica"> Periódica</label>
+                        <label><input type="radio" name="periodicidade" value="Final"> Final</label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="section-title">Relação de Ferramentas e Equipamentos</div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 6%;">Nº</th>
-                    <th style="width: 36%;">Ferramenta / Equipamento</th>
-                    <th style="width: 9%;">Qtd.</th>
-                    <th style="width: 20%;">Situação</th>
-                    <th style="width: 10%;">Conferido</th>
-                    <th style="width: 19%;">Observações</th>
-                </tr>
-            </thead>
-            <tbody id="tabelaFerramentas">
-                <!-- Preenchido via JavaScript -->
-            </tbody>
-        </table>
+            <div class="section-title">Relação de Ferramentas e Equipamentos</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 6%;">Nº</th>
+                        <th style="width: 36%;">Ferramenta / Equipamento</th>
+                        <th style="width: 9%;">Qtd.</th>
+                        <th style="width: 20%;">Situação</th>
+                        <th style="width: 10%;">Conferido</th>
+                        <th style="width: 19%;">Observações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaFerramentas">
+                    <!-- Preenchido via JavaScript -->
+                </tbody>
+            </table>
 
-        <div class="section-title">Parecer da Conferência</div>
-        <div class="opinion-group">
-            <label><input type="radio" name="parecer" value="Tudo conferido e disponível"> Todo o ferramental conferido e disponível para utilização.</label>
-            <label><input type="radio" name="parecer" value="Itens danificados ou manutenção"> Existem itens danificados ou que necessitam manutenção.</label>
-            <label><input type="radio" name="parecer" value="Itens faltantes"> Existem itens faltantes, devendo ser providenciada reposição.</label>
-        </div>
+            <div class="section-title">Parecer da Conferência</div>
+            <div class="opinion-group">
+                <label><input type="radio" name="parecer" value="Tudo conferido e disponível"> Todo o ferramental conferido e disponível para utilização.</label>
+                <label><input type="radio" name="parecer" value="Itens danificados ou manutenção"> Existem itens danificados ou que necessitam manutenção.</label>
+                <label><input type="radio" name="parecer" value="Itens faltantes"> Existem itens faltantes, devendo ser providenciada reposição.</label>
+            </div>
 
-        <div class="section-title">Descrição das Pendências / Observações Gerais</div>
-        <div class="form-group" style="margin-bottom: 25px;">
-            <textarea id="observacoesGerais" rows="4" placeholder="Descreva eventuais pendências encontradas..."></textarea>
-        </div>
+            <div class="section-title">Descrição das Pendências / Observações Gerais</div>
+            <div class="form-group" style="margin-bottom: 25px;">
+                <textarea id="observacoesGerais" rows="4" placeholder="Descreva eventuais pendências encontradas..."></textarea>
+            </div>
 
-        <div class="signatures">
-            <div class="signature-line">Técnico 1</div>
-            <div class="signature-line">Técnico 2</div>
-            <div class="signature-line">Responsável</div>
-        </div>
+            <div class="signatures">
+                <div class="signature-line">Técnico 1</div>
+                <div class="signature-line">Técnico 2</div>
+                <div class="signature-line">Responsável</div>
+            </div>
 
-        <div class="btn-container">
-            <button type="button" class="btn" onclick="imprimirRelatorio()">Salvar / Imprimir Relatório</button>
-        </div>
-    </form>
-</div>
+            <div class="btn-container">
+                <button type="button" class="btn" onclick="imprimirRelatorio()">Salvar / Imprimir Relatório</button>
+            </div>
+        </form>
+    </div>
 
-<script>
-    const itens = [
-        "Alicate de crimpar", "Alicate de corte", "Alicate universal", "Bits para parafusadeira", 
-        "Broca para concreto", "Broca para madeira", "Caneta teste de indução", "Carrinho de Fibra", 
-        "Chave cachimbo", "Chave de boca", "Chave de fenda", "Chave Phillips", "Clivador", 
-        "Cone de sinalização", "Estilete", "Facão", "Furadeira", "Guia (Passa Fio)", 
-        "Kit conector de fibra", "Laser", "Limpador de ONU", "Martelo", "Modelo do celular", 
-        "Modelo do notebook", "Nivelador de escada", "Parafusadeira", "Power Meter", 
-        "Testador de cabo", "Vara de Manobra", "Vara de pescar Fio", "Estado do Veículo"
-    ];
+    <script>
+        const itens = [
+            "Alicate de crimpar",
+            "Alicate de corte",
+            "Alicate universal",
+            "Bits para parafusadeira",
+            "Broca para concreto",
+            "Broca para madeira",
+            "Caneta teste de indução",
+            "Carrinho de Fibra",
+            "Chave cachimbo",
+            "Chave de boca",
+            "Chave de fenda",
+            "Chave Phillips",
+            "Clivador",
+            "Cone de sinalização",
+            "Estilete",
+            "Etiquetadora",
+            "Facão",
+            "Furadeira",
+            "Guia (Passa Fio)",
+            "Kit conector de fibra",
+            "Laser",
+            "Limpador de ONU",
+            "Martelo",
+            "Modelo do celular",
+            "Modelo do notebook",
+            "Nivelador de escada",
+            "Parafusadeira",
+            "Power Meter",
+            "Testador de cabo",
+            "Vara de Manobra",
+            "Vara de pescar Fio",
+            "Estado do Veículo"
+        ];
 
-    const tbody = document.getElementById('tabelaFerramentas');
+        const tbody = document.getElementById('tabelaFerramentas');
 
-    itens.forEach((item, index) => {
-        const num = index + 1;
-        const isVeiculo = item === "Estado do Veículo";
-        const situacaoOpcoes = isVeiculo 
-            ? '<option value="OK">OK</option><option value="Limpo">Limpo</option><option value="Manutenção">Manutenção</option>'
-            : '<option value="OK">OK</option><option value="Danificado">Danificado</option><option value="Manutenção">Manutenção</option>';
+        itens.forEach((item, index) => {
+            const num = index + 1;
+            const isVeiculo = item === "Estado do Veículo";
+            const situacaoOpcoes = isVeiculo 
+                ? '<option value="OK">OK</option><option value="Limpo">Limpo</option><option value="Manutenção">Manutenção</option>'
+                : '<option value="OK">OK</option><option value="Danificado">Danificado</option><option value="Manutenção">Manutenção</option>';
 
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td style="font-weight: 600; color: var(--text-muted);">${num}</td>
-            <td><strong>${item}</strong></td>
-            <td><input type="text" value="1" style="width: 55px; text-align: center; padding: 8px;" /></td>
-            <td>
-                <select style="width: 100%; padding: 8px;">
-                    ${situacaoOpcoes}
-                </select>
-            </td>
-            <td>
-                <select style="width: 100%; padding: 8px;">
-                    <option value="Sim">Sim</option>
-                    <option value="Não">Não</option>
-                </select>
-            </td>
-            <td><input type="text" placeholder="Detalhes..." style="width: 100%; padding: 8px;" /></td>
-        `;
-        tbody.appendChild(tr);
-    });
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td style="font-weight: 600; color: var(--text-muted);">${num}</td>
+                <td><strong>${item}</strong></td>
+                <td><input type="text" value="1" style="width: 55px; text-align: center; padding: 8px;" /></td>
+                <td>
+                    <select style="width: 100%; padding: 8px;">
+                        ${situacaoOpcoes}
+                    </select>
+                </td>
+                <td>
+                    <select style="width: 100%; padding: 8px;">
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </td>
+                <td><input type="text" placeholder="Detalhes..." style="width: 100%; padding: 8px;" /></td>
+            `;
+            tbody.appendChild(tr);
+        });
 
-    function imprimirRelatorio() {
-        window.print();
-    }
-</script>
-
+        function imprimirRelatorio() {
+            window.print();
+        }
+    </script>
 </body>
 </html>
